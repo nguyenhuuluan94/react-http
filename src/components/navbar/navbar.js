@@ -1,6 +1,5 @@
 import React from "react";
-
-
+import { Link } from 'react-router-dom';
 
 const navbar = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -10,14 +9,14 @@ const navbar = () => (
     <div className="collapse navbar-collapse ml-auto">
       <ul className="navbar-nav ml-auto">
         <li className="nav-item active">
-          <a className="nav-link" href="/">
+          <Link className="nav-link" to="/">
             Home
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/new-post">
+          <Link className="nav-link" to="/new-post">
             New Post
-          </a>
+          </Link>
         </li>
       </ul>
     </div>

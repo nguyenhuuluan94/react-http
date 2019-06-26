@@ -1,7 +1,7 @@
-import Axios from 'axios';
-import React, { Component } from 'react';
+import Axios from "axios";
+import React, { Component } from "react";
 
-import Post from './post/post';
+import Post from "./post/post";
 
 class Posts extends Component {
   state = {
@@ -19,11 +19,15 @@ class Posts extends Component {
     );
   }
 
+  postSelected = (id) => {
+    console.log(id);
+  }
+
   render() {
     let posts = null;
-    
+
     posts = this.state.posts.map(post => {
-      return <Post key={post.id} body={post.body} id={post.id} />;
+      return <Post key={post.id} body={post.body} id={post.id} postSelected={() => this.postSelected(post.id)} />;
     });
 
     return <div className="d-flex flex-wrap mt-4 container">{posts}</div>;
