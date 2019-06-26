@@ -26,7 +26,7 @@ class Posts extends Component {
       return <Post key={post.id} body={post.body} id={post.id} />;
     });
 
-    return <div className="d-flex flex-wrap mt-4">{posts}</div>;
+    return <div className="d-flex flex-wrap mt-4 container">{posts}</div>;
   }
 }
 
