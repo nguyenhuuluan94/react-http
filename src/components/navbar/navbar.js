@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const navbar = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
-    <a className="navbar-brand" href="#">
+    <Link className="nav-link navbar-brand" to="/">
       Luan Nguyen Huu React Demo
-    </a>
+    </Link>
     <div className="collapse navbar-collapse ml-auto">
       <ul className="navbar-nav ml-auto">
         <li className="nav-item active">
@@ -20,7 +20,6 @@ const navbar = () => (
         </li>
       </ul>
     </div>
-    
   </nav>
 );
 

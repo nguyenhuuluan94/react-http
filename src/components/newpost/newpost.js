@@ -1,6 +1,21 @@
 import React, { Component } from "react";
+import Axios from "axios";
 
 class NewPost extends Component {
+  createNewPost() {
+    const body = {
+      
+    }
+    Axios.post('https://jsonplaceholder.typicode.com/posts/', body).then(
+      response => {
+
+      },
+      error => {
+
+      }
+    )
+  }
+
   render() {
     return (
       <form className="container mt-4">
@@ -20,7 +35,7 @@ class NewPost extends Component {
             rows="3"
           />
         </div>
-        <button type="submit" className="btn btn-info">
+        <button type="submit" className="btn btn-info" onClick={this.createNewPost}>
           Create Post
         </button>
       </form>

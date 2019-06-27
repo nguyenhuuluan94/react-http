@@ -1,15 +1,18 @@
-import Axios from "axios";
+import axios from "axios";
 import React, { Component } from "react";
 
 import Post from "./post/post";
 
+import { Link } from "react-router-dom";
+
 class Posts extends Component {
   state = {
-    posts: []
+    posts: [],
+    selectedPostId: null
   };
 
   componentDidMount() {
-    Axios.get("https://jsonplaceholder.typicode.com/posts").then(
+    axios.get("https://jsonplaceholder.typicode.com/posts").then(
       response => {
         this.setState({ posts: response.data.slice(0, 6) });
       },
@@ -20,17 +23,26 @@ class Posts extends Component {
   }
 
   postSelected = (id) => {
-    console.log(id);
+    this.setState({ selectedPostId: id })
   }
 
   render() {
     let posts = null;
 
+    const style = {
+      maxWidth: '18rem',
+      minHeight: '300px'
+    }
+
     posts = this.state.posts.map(post => {
-      return <Post key={post.id} body={post.body} id={post.id} postSelected={() => this.postSelected(post.id)} />;
+      return (
+        <Link to={'/' + post.id} key={post.id} style={{ textDecoration: 'none' }}>
+          <Post body={post.body} id={post.id} clicked={() => this.postSelected(post.id)} style={style} />
+        </Link>
+      )
     });
 
-    return <div className="d-flex flex-wrap mt-4 container">{posts}</div>;
+    return <div className="d-flex flex-wrap mt-4 container justify-content-center">{posts}</div>;
   }
 }
 

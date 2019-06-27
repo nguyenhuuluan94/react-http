@@ -1,15 +1,19 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import Navbar from "../../components/navbar/navbar";
 import Posts from "../../components/posts/posts";
 import NewPost from "../../components/newpost/newpost";
+import FullPost from "../../components/fullpost/fullpost";
 
 const layout = () => (
   <div>
     <Navbar />
-    <Route path="/new-post" component={NewPost} />
-    <Route path="/" exact component={Posts} />
+    <Switch>
+      <Route path="/" exact component={Posts} />
+      <Route path="/new-post" component={NewPost} />
+      <Route path="/:id" exact component={FullPost} />
+    </Switch>
   </div>
 );
 

@@ -1,16 +1,21 @@
 import React from "react";
 
-const post = props => (
-  <div
-    className="card border-info mb-3 mr-3"
-    style={{ maxWidth: "18rem" }}
-    onClick={props.postSelected}
-  >
-    <div className="card-header">Post #{props.id}</div>
-    <div className="card-body text-info">
-      <p className="card-text">{props.body}</p>
+const post = props => {
+  let title = null;
+  title = props.title ? props.title : `Post # ${props.id}`;
+  
+  return (
+    <div
+      className="card border-info mb-3 mr-3"
+      style={props.style}
+      onClick={props.clicked}
+    >
+      <div className="card-header bg-info text-white">{title}</div>
+      <div className="card-body text-info">
+        <p className="card-text">{props.body}</p>
+      </div>
     </div>
-  </div>
-);
+  )
+}
 
 export default post;
