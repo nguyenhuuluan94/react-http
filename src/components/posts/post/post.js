@@ -2,7 +2,7 @@ import React from "react";
 
 const post = props => {
   let title = null;
-  title = props.title ? props.title : `Post # ${props.id}`;
+  title = props.title ? props.title : `Post number ${props.id}`;
   
   return (
     <div

@@ -2,40 +2,45 @@ import React, { Component } from "react";
 import Axios from "axios";
 
 class NewPost extends Component {
-  createNewPost() {
-    const body = {
-      
-    }
-    Axios.post('https://jsonplaceholder.typicode.com/posts/', body).then(
-      response => {
+  state = {
+    title: '',
+    content: ''
+  }
 
-      },
-      error => {
+  createNewPost = () => {
+    Axios.post('https://jsonplaceholder.typicode.com/posts/', this.state).then(
+      () => {
+        alert('Your post has been submitted successfully');
+        this.props.history.push('/');
+      })
+  }
 
-      }
-    )
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {
     return (
       <form className="container mt-4">
         <div className="form-group">
-          <label htmlFor="exampleFormControlInput1">Post title</label>
+          <label>Post title</label>
           <input
             type="text"
             className="form-control"
-            placeholder="name@example.com"
+            name="title"
+            onChange={(event) => this.handleChange(event)}
           />
         </div>
         <div className="form-group">
-          <label htmlFor="exampleFormControlTextarea1">Post content</label>
+          <label>Post content</label>
           <textarea
-            className="form-control"
-            id="exampleFormControlTextarea1"
             rows="3"
+            className="form-control"
+            name="content"
+            onChange={(event) => this.handleChange(event)}
           />
         </div>
-        <button type="submit" className="btn btn-info" onClick={this.createNewPost}>
+        <button type="button" className="btn btn-info" onClick={this.createNewPost}>
           Create Post
         </button>
       </form>

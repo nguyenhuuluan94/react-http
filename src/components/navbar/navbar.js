@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 const navbar = () => (
-  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+  <nav className="navbar navbar-expand-sm navbar-light bg-light">
     <Link className="nav-link navbar-brand" to="/">
       Luan Nguyen Huu React Demo
     </Link>
