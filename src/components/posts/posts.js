@@ -12,7 +12,7 @@ class Posts extends Component {
   };
 
   componentDidMount() {
-    axios.get("https://jsonplaceholder.typicode.com/posts").then(
+    axios.get("/posts").then(
       response => {
         this.setState({ posts: response.data.slice(0, 6) });
       },
@@ -36,7 +36,7 @@ class Posts extends Component {
 
     posts = this.state.posts.map(post => {
       return (
-        <Link to={'/' + post.id} key={post.id} style={{ textDecoration: 'none' }}>
+        <Link to={'post/' + post.id} key={post.id} style={{ textDecoration: 'none' }}>
           <Post body={post.body} id={post.id} clicked={() => this.postSelected(post.id)} style={style} />
         </Link>
       )

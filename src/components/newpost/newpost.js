@@ -4,13 +4,13 @@ import Axios from "axios";
 class NewPost extends Component {
   state = {
     title: '',
-    content: ''
+    content: '',
   }
 
   createNewPost = () => {
-    Axios.post('https://jsonplaceholder.typicode.com/posts/', this.state).then(
+    Axios.post('/posts/', this.state).then(
       () => {
-        alert('Your post has been submitted successfully');
+        // alert('Your post has been submitted successfully');
         this.props.history.push('/');
       })
   }
